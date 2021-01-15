@@ -1,10 +1,10 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$userName = $inData["UserName"];
+	$userName = $inData["Username"];
 	$password = $inData["Password"];
-	$firstName =  $inData["firstName"];
-	$lastName =  $inData["lastName"];
+	$firstName =  $inData["FirstName"];
+	$lastName =  $inData["LastName"];
 
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
@@ -14,7 +14,7 @@
 	} 
 	else
 	{
-		$sql = "insert into Users (FirstName,LastName,Username,Password) VALUES (" . $firstName . ",'" . $lastName . ", '" . $userName . ", '" . $password . "')";
+	  $sql = "insert into Users (FirstName,LastName,Username,Password) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $userName . "', '" . $password . "')";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
