@@ -1,4 +1,4 @@
-var urlBase = 'http://COP4331-5.com/LAMPAPI';
+var urlBase = 'http://161.35.181.141/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
@@ -18,7 +18,7 @@ function doLogin()
 	document.getElementById("loginResult").innerHTML = "";
 
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var jsonPayload = '{"Username" : "' + login + '", "Password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
