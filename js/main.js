@@ -1,4 +1,4 @@
-var urlBase = 'https://github.com/TBean18/COP4331Contact/tree/main/LAMPAPI';
+var urlBase = 'http://161.35.181.141/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
