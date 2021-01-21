@@ -892,7 +892,7 @@ legend {
   font-size: 36px;
   color: #fff;
   font-weight: 800;
-  text-align: center;
+
   margin-bottom: 59px;
 }
 
@@ -1012,6 +1012,36 @@ legend {
   -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
   -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
   -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+}
+
+.s006 form .wrap-searchResults  {
+  padding: 15px 15px 15px 15px;
+  margin-top: 50px;
+  width: 100%;
+  background: #fff;
+  border-radius: 34px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.s006 form .wrap-searchResults .list-group-item {
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #9e89bd;
+  line-height: 1.2;
+  font-family: SourceSansPro-Bold;
+  align: center;
+  text-align: left;
+}
+
+.s006 form .wrap-searchResults .list-group-item:hover {
+  color: #4b2354;
 }
 
 @media screen and (max-width: 767px) {
