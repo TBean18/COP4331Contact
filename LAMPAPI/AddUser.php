@@ -5,7 +5,7 @@
 	$password = $inData["Password"];
 	$firstName =  $inData["FirstName"];
 	$lastName =  $inData["LastName"];
-
+  	$UserID = 0;
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
 	if ($conn->connect_error) 
@@ -19,12 +19,17 @@
 		{
 			returnWithError( $conn->error );
 		}
+    	$UserID = $conn->insert_id;
 		$conn->close();
 	}
 
 	// instead return with the ID of the newly created user
-
-	returnWithID($conn->insert_id);
+	if($UserID > 0){
+		returnWithID($UserID);
+	}
+	else {
+		returnWithError( "UserID not Found" );
+	}
 	
 	function getRequestInfo()
 	{
