@@ -170,3 +170,52 @@ function readCookie()
 
 
 })(jQuery);
+
+function createUser()
+{
+	userId = 0;
+
+	// Gather info from HTML
+
+	firstName = document.getElementById("firstName").value;
+	lastName = document.getElementById("lastName").value;
+	var login = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
+//	var hash = md5( password );
+
+	document.getElementById("loginResult").innerHTML = "";
+
+//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+	var jsonPayload = JSON.stringify({"Username" :  login, "Password" : password, "FirstName" : firstName, "LastName" : lastName});
+	var url = urlBase + '/AddUser.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.send(jsonPayload);
+
+		var jsonObject = JSON.parse( xhr.responseText );
+
+		userId = jsonObject.id;
+
+		if( jsonObject.error != '')
+		{
+			document.getElementById("loginResult").innerHTML = "Error has occured";
+			return;
+		}
+
+		firstName = jsonObject.firstName;
+		lastName = jsonObject.lastName;
+
+		saveCookie();
+
+		window.location.href = "main-page.html";
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
