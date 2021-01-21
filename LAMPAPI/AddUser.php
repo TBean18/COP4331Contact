@@ -14,15 +14,17 @@
 	} 
 	else
 	{
-	  $sql = "insert into Users (FirstName,LastName,Username,Password) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $userName . "', '" . $password . "')";
+	  	$sql = "insert into Users (FirstName,LastName,Username,Password) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $userName . "', '" . $password . "')";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
 		}
 		$conn->close();
 	}
-	
-	returnWithError("");
+
+	// instead return with the ID of the newly created user
+
+	returnWithID($conn->insert_id);
 	
 	function getRequestInfo()
 	{
@@ -39,6 +41,12 @@
 	{
 		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
+	}
+
+	function returnWithID($userID){
+		$retValue = '{"id": '. $userID .  '}';
+		header('Content-type: application/json');
+		echo $retValue;
 	}
 	
 ?>
