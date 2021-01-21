@@ -49,7 +49,7 @@
 	}
 
 	function returnWithID($userID){
-		$retValue = '{"id": '. $userID .  '}';
+		$retValue = '{"id": '. $userID .  ', "error": ""}';
 		header('Content-type: application/json');
 		echo $retValue;
 	}
