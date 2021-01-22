@@ -1,31 +1,127 @@
 <html>
   <head>
+    <title>Contactless: Main Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
     <link href="css/main-page.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom-modal.css">
   </head>
   <body>
+    <!-- Modal for Contact Info -->
+    <div class="modal animate__animated animate__fadeIn" id="viewContact" tabindex="-1" role="dialog" aria-labelledby="viewContactTitle" aria-hidden="true">
+      <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="viewContactLongTitle">John Doe</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Address: University Blvd
+                <br>
+                <br>
+              Phone Number: 407-477-0070
+                <br>
+                <br>
+              More: More-More-More
+            </div>
+            <div class="modal-footer">
+              <div class="text-left">
+                <button type="button" class="btn btn-delete">Delete</button>
+              </div>
+              <button type="button" class="btn btn-edit">Edit</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Adding Contact -->
+    <div class="modal animate__animated animate__fadeIn" id="addContact" tabindex="-1" role="dialog" aria-labelledby="addContactTitle" aria-hidden="true">
+      <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addContactLongTitle">Modal</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="s006" style="background-image: url('images/search-bg.jpg');">
-      <form>
+      <form onsubmit="return showDiv();">
         <fieldset>
-          <legend>Who are you looking for?</legend>
+          <legend>
+            Who are you looking for?
+          </legend>
+            <!-- Search Bar and Search Icon Button -->
           <div class="inner-form">
             <div class="input-field">
-              <button class="btn-search" type="button">
+              <button class="btn-search" type="button" onclick="showDiv();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
                 </svg>
               </button>
-              <input id="search" type="text" placeholder="John Doe" value="" />
+              <input id="search" type="text" placeholder="John Doe" value="" autocomplete="off"/>
             </div>
           </div>
+
+            <!-- Add Contact Button -->
           <div class="suggestion-wrap">
-            <button class="addcontact-form-btn">
+            <button class="addcontact-form-btn" type="button" onclick="">
   						Add Contact
   					</button>
           </div>
+
+            <!-- JS to Display Search Results -->
+          <script type="text/javascript">
+             function showDiv() {
+                 document.getElementById('search-results').style.display = "block";
+                 return false;
+             }
+          </script>
+
+            <!-- Search Results -->
+          <ul class="wrap-searchResults animate__animated animate__fadeIn" style="display:none;" id="search-results">
+            <div class="list-group list-group-flush">
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Janice Doe
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Jeremy Doe
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Jim Doethy
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Janet Doethy
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Zagreus
+              </button>
+            </div>
+          </ul>
         </fieldset>
       </form>
     </div>
