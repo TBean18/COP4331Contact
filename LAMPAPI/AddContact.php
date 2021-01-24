@@ -3,10 +3,8 @@
 
 	$email = $inData["Email"];
 	$phone = $inData["Phone"];
-	$firstName =  $inData["FirstName"];
-	$lastName =  $inData["LastName"];
+	$name =  $inData["Name"];
 	$userID = $inData["UserID"];
-
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
 	if ($conn->connect_error)
@@ -15,7 +13,7 @@
 	}
 	else
 	{
-		$sql = "insert into Contacts (FirstName,LastName,Email,Phone,UserID) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $email . "', '" . $phone . "', " . $userID . ")";
+		$sql = "insert into Contacts (Name,Email,Phone,UserID) VALUES ( '" . $name . "', '" . $email . "', '" . $phone . "', " . $userID . ")";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
@@ -41,5 +39,4 @@
 		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
-
 ?>
