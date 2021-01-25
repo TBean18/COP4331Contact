@@ -1,0 +1,118 @@
+.modal-content {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  outline: 0;
+  width: 500px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.modal-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #4b2354;
+}
+
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  padding: 15px;
+  font-family: SourceSansPro-Regular;
+  color: #4b2354;
+}
+
+.modal-footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  padding: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 87.5%;
+  left: .75rem;
+
+  transform: translateY(-50%);
+  color: #fff;
+  background-color: #FF4B4B;
+  border-color: #FF4B4B;
+}
+
+.btn-delete:hover {
+  color: #fff;
+  background-color: #D10000;
+  border-color: #FF4B4B;
+}
+
+.btn-delete:active, .btn-edit.active,
+.show > .btn-edit.dropdown-toggle {
+  background-color: #FF8B8B;
+  background-image: none;
+  border-color: #FF8B8B;
+}
+
+.btn-edit {
+  color: #FF4B4B;
+  background-color: #fff;
+  border-color: #FF4B4B;
+}
+
+.btn-edit:hover {
+  color: #FF4B4B;
+  background-color: #FAD3D3;
+  border-color: #FF4B4B;
+}
+
+.btn-edit:active, .btn-edit.active,
+.show > .btn-edit.dropdown-toggle {
+  background-color: #FF8B8B;
+  background-image: none;
+  border-color: #FF8B8B;
+}

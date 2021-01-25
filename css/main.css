@@ -269,7 +269,7 @@ iframe {
 }
 
 /*==================================================================
-[ Sign In Title ]*/
+[ Sign In ]*/
 
 .signup100-page {
   width: 100%;
@@ -304,6 +304,7 @@ iframe {
 [ Input ]*/
 
 .wrap-input100 {
+  clear: both;
   width: 100%;
   position: relative;
   background-color: #fff;
@@ -311,6 +312,7 @@ iframe {
 }
 
 .input100 {
+  clear: both;
   font-family: SourceSansPro-Bold;
   font-size: 16px;
   color: #4b2354;
@@ -323,11 +325,71 @@ iframe {
   padding: 0 20px 0 23px;
 }
 
+.wrap-input50 {
+  width: 47.5%;
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  float: left;
+}
+.wrap-input51 {
+  width: 47.5%;
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  float: left;
+  margin-left: 5%;
+}
+
+.input50 {
+  font-family: SourceSansPro-Bold;
+  font-size: 16px;
+  color: #4b2354;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 62px;
+  background: transparent;
+  padding: 0 20px 0 23px;
+
+  float: left;
+}
+
 
 /*------------------------------------------------------------------
 [ Focus Input ]*/
 
 .focus-input100 {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input100:focus + .focus-input100 {
+  box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
+.focus-input50 {
   display: block;
   position: absolute;
   width: 100%;
