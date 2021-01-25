@@ -52,13 +52,25 @@
         <div class="modal-dialog vertical-align-center" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addContactLongTitle">Modal</h5>
+              <h5 class="modal-title" id="addContactLongTitle">Add Contact</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              First Name:
+                <br>
+                <br>
+              Last Name:
+                <br>
+                <br>
+              Address:
+                <br>
+                <br>
+              Phone Number:
+                <br>
+                <br>
+              More:
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -89,7 +101,7 @@
 
             <!-- Add Contact Button -->
           <div class="suggestion-wrap">
-            <button class="addcontact-form-btn" type="button" onclick="">
+            <button class="addcontact-form-btn" onclick="return false" data-toggle="modal" data-target="#addContact">
   						Add Contact
   					</button>
           </div>
@@ -104,7 +116,7 @@
 
             <!-- Search Results -->
           <ul class="wrap-searchResults animate__animated animate__fadeIn" style="display:none;" id="search-results">
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush scroll">
               <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
                 Janice Doe
               </button>
@@ -119,6 +131,27 @@
               </button>
               <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
                 Zagreus
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Orpheus
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Euridice
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Peracles
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Bayek
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Cameron Finch
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Edith Finch
+              </button>
+              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
+                Amanda Ripley
               </button>
             </div>
           </ul>
