@@ -711,6 +711,37 @@ legend {
   font-family: SourceSansPro-Bold;
 }
 
+div.scroll {
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  mask-position: left bottom;
+  -webkit-mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 17px, black 17px);
+  -webkit-mask-size: 100% 20000px;
+  -webkit-mask-position: left bottom;
+  transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+
+div.scroll:hover {
+  -webkit-mask-position: left top;
+}
+
+@keyframes background {
+  from {
+    background: pink;
+  }
+  to {
+    background: #c0d6ff;
+  }
+}
+
+.wrapper {
+  float: left;
+  animation: background 5s infinite alternate;
+}
+
 @media screen and (max-width: 767px) {
   .s006 form .inner-form .input-field {
     margin-bottom: 20px;
