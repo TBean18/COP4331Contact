@@ -18,7 +18,18 @@
 |AddUser.php | FirstName, LastName, Username, Password| error, id
 |Login.php | Username, Password | FirstName, LastName, id 
 | AddContact.php | FirstName, LastName, Phone, Email, UserID | error
-| SearchContact.php | Search, UserID | 
+| SearchContact.php | Search, UserID | `"results": [{ "Name", Phone":, "Email":, "ID":}], "error":`
+
+
+<!-- ```json
+"results" {
+    "Name":,
+    "Phone":,
+    "Email":,
+    "ID":
+}
+``` -->
+
 
 ***
 ## Project Timeline
