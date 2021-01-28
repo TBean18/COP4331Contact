@@ -40,7 +40,7 @@
 	}
 
 	function returnWithInfo($info){
-		$retValue = '{"info":"' . $info . '"}';
+		$retValue = '{"info":"' . $info . '", "error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 ?>
