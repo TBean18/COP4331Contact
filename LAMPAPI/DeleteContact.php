@@ -1,10 +1,10 @@
 <?php
 	$inData = getRequestInfo();
 
-	$contactID = $inData["ContactID"]
+	$contactID = $inData["ContactID"];
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
-	$ret = ""
+	$ret = "";
 	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
