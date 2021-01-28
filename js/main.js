@@ -219,3 +219,45 @@ function createUser()
 	}
 
 }
+
+function searchColor()
+{
+	var srch = document.getElementById("search").value;
+	document.getElementById("search").innerHTML = "";
+
+	var contactList = "";
+
+	var jsonPayload = '{"Search" : "' + srch + '","UserId" : ' + userId + '}';
+	var url = urlBase + '/SearchContact.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				var jsonObject = JSON.parse( xhr.responseText );
+
+				for( var i=0; i<jsonObject.results.length; i++ )
+				{
+					contactList += jsonObject.results[i];
+					if( i < jsonObject.results.length - 1 )
+					{
+						contactList += "<br />\r\n";
+					}
+				}
+
+				document.getElementsByTagName("p")[0].innerHTML = contactList;
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		// TODO: What should we do with this error?
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+}
