@@ -12,7 +12,7 @@
 	}
 	else
 	{
-		$sql = "select Name from Contacts where Name like '%" . $inData["Search"] . "%' and UserID=" . $inData["UserID"];
+		$sql = "select * from Contacts where Name like '%" . $inData["Search"] . "%' and UserID=" . $inData["UserID"];
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
@@ -23,7 +23,7 @@
 					$searchResults .= ",";
 				}
 				$searchCount++;
-				$searchResults .= '"' . $row["Name"] . '"';
+				$searchResults .= '{ "Name": "' . $row["Name"] . '",	"Phone": "'. $row["Phone"] . '",	"Email": "'. $row["Email"].'"}';
 			}
 		}
 		else
