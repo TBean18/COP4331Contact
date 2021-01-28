@@ -4,6 +4,7 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
+var selectedContactId;
 
 function doLogin()
 {
@@ -260,4 +261,29 @@ function searchColor()
 		// TODO: What should we do with this error?
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
+}
+
+function selectContact(contact){
+	selectedContactId = contact.ID;
+	document.getElementById('addressInput').placeholder = contact.Name;
+	document.getElementById('phoneInput').placeholder = contact.Phone;
+	document.getElementById('emailInput').placeholder = contact.Email;
+}
+
+function editContactMode(){
+	document.getElementById('deleteContactButton').style.display = 'block';
+	document.getElementById('saveChangesButton').style.display = 'block';
+
+	document.getElementById('addressInput').readOnly = false;
+	document.getElementById('phoneInput').readOnly = false;
+	document.getElementById('emailInput').readOnly = false;
+
+}
+
+function updateContact(){
+	var address = document.getElementById('addressInput').value;
+	var phone = document.getElementById('phoneInput').value;
+	var email = document.getElementById('emailInput').value;
+
+
 }
