@@ -20,7 +20,7 @@
 | AddContact.php | FirstName, LastName, Phone, Email, UserID | error
 | SearchContact.php | Search, UserID | `"results": [{ "Name", Phone":, "Email":, "ID":}], "error":`
 | DeleteContact.php | ContactID | info, error
-
+| UpdateContact.php | Name, Phone, Email, ID | error
 <!-- ```json
 "results" {
     "Name":,
