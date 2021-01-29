@@ -93,7 +93,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
@@ -267,7 +267,7 @@ function searchContact()
 function selectContact(contact){
 	selectedContactId = contact.ID;
 	document.getElementById('addressInput').placeholder = contact.Name;
-	document.getElementById('viewContactLongTitle').placeholder = contact.Name;
+	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
 }
@@ -297,7 +297,9 @@ function appendSearchResult(result){
 	entry.innerHTML = result.Name;
 	entry.style.display = 'block';
 	entry.id = result.ID;
-	entry.onclick = function() {selectContact(searchContactResults[this.id]);}
+	entry.addEventListener('click', function() {
+		selectContact(result);
+		});
 	searchResultsContainer.appendChild(entry);
 
 }
