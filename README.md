@@ -5,7 +5,7 @@
 - [X] Login
 - [X] Create New User
 - [ ] Create New Contact
-- [ ] Search for Contacts
+- [x] Search for Contacts
 - [ ] Update Existing Contact
 - [ ] Delete Selected Contact 
 
