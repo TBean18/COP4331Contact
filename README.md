@@ -43,7 +43,20 @@
     - [X] All Members Present
 - ### Week 3 - 1/25/21
   - Meeting on 1/29/21
-    - [ ] All Members Present
+    - [X] All Members Present
+  - Task List for the Upcoming week
+    - Start Compiling the Presentation
+      - Phil, Sam
+    -  Set up updateContact on the front end (Conrad)
+       -  Clear the contact info box
+       -  Set up the save changes button
+    -  Set up createContact on the front end (Taylor)
+    -  Set up deleteContact on the front end
+    -  Log Out Button
+       -  JS is written in code.js (LAMP.zip)
+       -  
+
+
 
 
     
