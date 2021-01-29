@@ -4,6 +4,9 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
+var selectedContactId;
+const exampleResult = document.getElementById("exampleResult");
+
 
 function doLogin()
 {
@@ -220,14 +223,15 @@ function createUser()
 
 }
 
-function searchColor()
+function searchContact()
 {
+	if(userId === 0) readCookie();
 	var srch = document.getElementById("search").value;
 	document.getElementById("search").innerHTML = "";
 
 	var contactList = "";
 
-	var jsonPayload = '{"Search" : "' + srch + '","UserId" : ' + userId + '}';
+	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -240,17 +244,13 @@ function searchColor()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
-
+				console.log(jsonObject);
+				document.getElementById('searchResultsContainer').innerHTML = '';
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					appendSearchResult(jsonObject.results[i]);
 				}
 
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -260,4 +260,40 @@ function searchColor()
 		// TODO: What should we do with this error?
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
+}
+
+function selectContact(contact){
+	selectedContactId = contact.ID;
+	document.getElementById('addressInput').placeholder = contact.Name;
+	document.getElementById('phoneInput').placeholder = contact.Phone;
+	document.getElementById('emailInput').placeholder = contact.Email;
+}
+
+function editContactMode(){
+	document.getElementById('deleteContactButton').style.display = 'block';
+	document.getElementById('saveChangesButton').style.display = 'block';
+
+	document.getElementById('addressInput').readOnly = false;
+	document.getElementById('phoneInput').readOnly = false;
+	document.getElementById('emailInput').readOnly = false;
+
+}
+
+function updateContact(){
+	var address = document.getElementById('addressInput').value;
+	var phone = document.getElementById('phoneInput').value;
+	var email = document.getElementById('emailInput').value;
+
+
+}
+
+function appendSearchResult(result){
+	const searchResultsContainer = document.getElementById("searchResultsContainer");
+	const exampleResult = document.getElementById("exampleResult");
+	var entry = exampleResult.cloneNode(true);
+	entry.innerHTML = result.Name;
+	entry.style.display = 'block';
+	entry.id = result.ID;
+	searchResultsContainer.appendChild(entry);
+
 }

@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/custom-modal.css">
   </head>
@@ -26,20 +27,23 @@
               </button>
             </div>
             <div class="modal-body">
-              Address: University Blvd
+              <label for="addressInput">Address:</label> 
+              <input type="text" class="form-control-plaintext" id="addressInput" placeholder="University Blvd" readonly>
                 <br>
                 <br>
-              Phone Number: 407-477-0070
+              <label for="addressInput">Phone Number:</label>
+              <input type="text" id="phoneInput" class="form-control-plaintext" placeholder="407-477-0070" readonly>
                 <br>
                 <br>
-              More: More-More-More
+              <label for="addressInput">Email:</label>
+              <input type="text" id="emailInput" class="form-control-plaintext" placeholder="Example@Domain.com" readonly>
             </div>
             <div class="modal-footer">
               <div class="text-left">
-                <button type="button" class="btn btn-delete">Delete</button>
+                <button type="button" class="btn btn-delete" id="deleteContactButton" style="display: none;">Delete</button>
               </div>
-              <button type="button" class="btn btn-edit">Edit</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-edit" id="editContactButton" onclick="editContactMode()">Edit</button>
+              <button type="button" class="btn btn-primary" style="display: none; " id="saveChangesButton" onclick="updateContact()">Save changes</button>
             </div>
           </div>
         </div>
@@ -90,7 +94,7 @@
             <!-- Search Bar and Search Icon Button -->
           <div class="inner-form">
             <div class="input-field">
-              <button class="btn-search" type="button" onclick="showDiv();">
+              <button class="btn-search" type="button" onclick="{showDiv(); searchContact();}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
                 </svg>
@@ -116,44 +120,12 @@
 
             <!-- Search Results -->
           <ul class="wrap-searchResults animate__animated animate__fadeIn" style="display:none;" id="search-results">
-            <div class="list-group list-group-flush scroll">
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Janice Doe
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Jeremy Doe
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Jim Doethy
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Janet Doethy
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Zagreus
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Orpheus
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Euridice
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Peracles
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Bayek
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Cameron Finch
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Edith Finch
-              </button>
-              <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact">
-                Amanda Ripley
-              </button>
+            <div class="list-group list-group-flush scroll", id="searchResultsContainer">
+              
             </div>
+            <button class="list-group-item" onclick="return false" data-toggle="modal" data-target="#viewContact" id="exampleResult" style="display: none;">
+              Janice Doe
+            </button>
           </ul>
         </fieldset>
       </form>
