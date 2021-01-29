@@ -251,7 +251,6 @@ function searchContact()
 					appendSearchResult(jsonObject.results[i]);
 				}
 
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
