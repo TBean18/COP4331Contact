@@ -229,7 +229,7 @@ function searchContact()
 
 	var contactList = "";
 
-	var jsonPayload = '{"Search" : "' + srch + '","UserId" : ' + userId + '}';
+	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
