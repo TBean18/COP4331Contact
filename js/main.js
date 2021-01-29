@@ -294,6 +294,7 @@ function appendSearchResult(result){
 	var entry = exampleResult.cloneNode(true);
 	entry.innerHTML = result.Name;
 	entry.style.display = 'block';
+	entry.id = result.ID;
 	searchResultsContainer.appendChild(entry);
 
 }
