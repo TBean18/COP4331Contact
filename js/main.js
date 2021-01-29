@@ -297,7 +297,7 @@ function appendSearchResult(result){
 	entry.innerHTML = result.Name;
 	entry.style.display = 'block';
 	entry.id = result.ID;
-	entry.onclick = 'searchContact(searchContactResults[this.id]);'
+	entry.onclick = function() {selectContact(searchContactResults[this.id]);}
 	searchResultsContainer.appendChild(entry);
 
 }
