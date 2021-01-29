@@ -6,6 +6,7 @@ var firstName = "";
 var lastName = "";
 var selectedContactId;
 const exampleResult = document.getElementById("exampleResult");
+var searchContactResults;
 
 
 function doLogin()
@@ -92,7 +93,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		// document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
@@ -246,6 +247,7 @@ function searchContact()
 				var jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
 				document.getElementById('searchResultsContainer').innerHTML = '';
+				searchContactResults = jsonObject.results;
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
 					appendSearchResult(jsonObject.results[i]);
@@ -265,6 +267,7 @@ function searchContact()
 function selectContact(contact){
 	selectedContactId = contact.ID;
 	document.getElementById('addressInput').placeholder = contact.Name;
+	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
 }
@@ -294,6 +297,9 @@ function appendSearchResult(result){
 	entry.innerHTML = result.Name;
 	entry.style.display = 'block';
 	entry.id = result.ID;
+	entry.addEventListener('click', function() {
+		selectContact(result);
+		});
 	searchResultsContainer.appendChild(entry);
 
 }
