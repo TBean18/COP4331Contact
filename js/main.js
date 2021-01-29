@@ -5,6 +5,8 @@ var userId = 0;
 var firstName = "";
 var lastName = "";
 var selectedContactId;
+const exampleResult = document.getElementById("exampleResult");
+
 
 function doLogin()
 {
@@ -243,6 +245,7 @@ function searchContact()
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
+				document.getElementById('searchResultsContainer').innerHTML = '';
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
 					appendSearchResult(jsonObject.results[i]);
