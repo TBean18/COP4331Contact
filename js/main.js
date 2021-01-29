@@ -245,11 +245,7 @@ function searchContact()
 				console.log(jsonObject);
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					appendSearchResult(jsonObject.results[i]);
 				}
 
 				document.getElementsByTagName("p")[0].innerHTML = contactList;
@@ -286,5 +282,13 @@ function updateContact(){
 	var phone = document.getElementById('phoneInput').value;
 	var email = document.getElementById('emailInput').value;
 
+
+}
+
+function appendSearchResult(result){
+	const searchResultsContainer = document.getElementById("searchResultsContainer");
+	var entry = document.createElement("button");
+	entry.innerHTML = result.Name;
+	searchResultsContainer.appendChild(entry);
 
 }
