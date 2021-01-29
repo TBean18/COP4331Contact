@@ -287,8 +287,10 @@ function updateContact(){
 
 function appendSearchResult(result){
 	const searchResultsContainer = document.getElementById("searchResultsContainer");
-	var entry = document.createElement("button");
+	const exampleResult = document.getElementById("exampleResult");
+	var entry = exampleResult.cloneNode(true);
 	entry.innerHTML = result.Name;
+	entry.style.display = 'block';
 	searchResultsContainer.appendChild(entry);
 
 }
