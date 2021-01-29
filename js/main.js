@@ -223,6 +223,7 @@ function createUser()
 
 function searchContact()
 {
+	if(userId === 0) readCookie();
 	var srch = document.getElementById("search").value;
 	document.getElementById("search").innerHTML = "";
 
