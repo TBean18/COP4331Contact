@@ -221,7 +221,7 @@ function createUser()
 
 }
 
-function searchColor()
+function searchContact()
 {
 	var srch = document.getElementById("search").value;
 	document.getElementById("search").innerHTML = "";
@@ -241,7 +241,7 @@ function searchColor()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
-
+				console.log(jsonObject);
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
 					contactList += jsonObject.results[i];
