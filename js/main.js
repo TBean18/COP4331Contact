@@ -270,6 +270,9 @@ function selectContact(contact){
 	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
+
+	document.getElementById('deleteContactButton').style.display = 'none';
+	document.getElementById('saveChangesButton').style.display = 'none';
 }
 
 function editContactMode(){
@@ -315,4 +318,5 @@ function deleteContact(){
 	} catch (error) {
 		console.log(error);
 	}
+	document.getElementById(String(selectedContactId)).remove();
 }
