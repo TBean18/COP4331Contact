@@ -308,7 +308,7 @@ function deleteContact(){
 	var jsonPayload = JSON.stringify({'ContactID': selectedContactId});
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/DeleteContact.' + extension;
-	xhr.open("GET", url, true);
+	xhr.open("DELETE", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
