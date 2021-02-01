@@ -305,7 +305,7 @@ function appendSearchResult(result){
 }
 
 function deleteContact(){
-	var jsonPayload = JSON.stringify({'contactID': selectedContactId});
+	var jsonPayload = JSON.stringify({'ContactID': selectedContactId});
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/DeleteContact.' + extension;
 	xhr.open("GET", url, true);
