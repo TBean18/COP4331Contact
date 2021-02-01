@@ -293,6 +293,30 @@ function updateContact(){
 
 }
 
+function createContact(){
+	if(userId <= 0){
+		readCookie()
+	}
+	var firstName = document.getElementById("newContactFirstName");
+	var lastName = document.getElementById("newContactLastName");
+	var name = firstName + " " + lastName
+	var phone =  document.getElementById("newContactPhoneNumber");
+	var email =  document.getElementById("newContactEmail");
+
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'UserID':userId} )
+
+	var xhr = new XMLHttpRequest();
+	var url = urlBase + '/AddContact.' + extension;
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
+	
+}
+
 function appendSearchResult(result){
 	const searchResultsContainer = document.getElementById("searchResultsContainer");
 	const exampleResult = document.getElementById("exampleResult");
