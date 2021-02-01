@@ -297,11 +297,11 @@ function createContact(){
 	if(userId <= 0){
 		readCookie()
 	}
-	var firstName = document.getElementById("newContactFirstName");
-	var lastName = document.getElementById("newContactLastName");
-	var name = firstName + " " + lastName
-	var phone =  document.getElementById("newContactPhoneNumber");
-	var email =  document.getElementById("newContactEmail");
+	var newContactFirstName = document.getElementById("newContactFirstName").value;
+	var newContactLastName = document.getElementById("newContactLastName").value;
+	var name = newContactFirstName + " " + newContactLastName
+	var phone =  document.getElementById("newContactPhoneNumber").value;
+	var email =  document.getElementById("newContactEmail").value;
 
 	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'UserID':userId} )
 
