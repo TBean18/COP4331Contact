@@ -7,7 +7,7 @@
 - [ ] Create New Contact
 - [x] Search for Contacts
 - [ ] Update Existing Contact
-- [ ] Delete Selected Contact 
+- [X] Delete Selected Contact 
 
 ***
 ## API Documentation
