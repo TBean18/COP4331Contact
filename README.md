@@ -17,7 +17,7 @@
 | -------- | ---------------- | --------------
 |AddUser.php | FirstName, LastName, Username, Password| error, id
 |Login.php | Username, Password | FirstName, LastName, id 
-| AddContact.php | FirstName, LastName, Phone, Email, UserID | error
+| AddContact.php | Name, Phone, Email, UserID | error
 | SearchContact.php | Search, UserID | `"results": [{ "Name", Phone":, "Email":, "ID":}], "error":`
 | DeleteContact.php | ContactID | info, error
 | UpdateContact.php | Name, Phone, Email, ID | error
