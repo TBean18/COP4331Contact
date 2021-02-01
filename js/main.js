@@ -304,10 +304,11 @@ function appendSearchResult(result){
 
 }
 
-function deleteContact(contactID){
-	var jsonPayload = JSON.stringify({contactID: contactID});
+function deleteContact(){
+	var jsonPayload = JSON.stringify({'contactID': selectedContactId});
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	var url = urlBase + '/DeleteContact.' + extension;
+	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
