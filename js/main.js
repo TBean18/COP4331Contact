@@ -303,3 +303,15 @@ function appendSearchResult(result){
 	searchResultsContainer.appendChild(entry);
 
 }
+
+function deleteContact(contactID){
+	var jsonPayload = JSON.stringify({contactID: contactID});
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
+}
