@@ -270,6 +270,9 @@ function selectContact(contact){
 	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
+
+	document.getElementById('deleteContactButton').style.display = 'none';
+	document.getElementById('saveChangesButton').style.display = 'none';
 }
 
 function editContactMode(){
@@ -290,6 +293,30 @@ function updateContact(){
 
 }
 
+function createContact(){
+	if(userId <= 0){
+		readCookie()
+	}
+	var newContactFirstName = document.getElementById("newContactFirstName").value;
+	var newContactLastName = document.getElementById("newContactLastName").value;
+	var name = newContactFirstName + " " + newContactLastName
+	var phone =  document.getElementById("newContactPhoneNumber").value;
+	var email =  document.getElementById("newContactEmail").value;
+
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'UserID':userId} )
+
+	var xhr = new XMLHttpRequest();
+	var url = urlBase + '/AddContact.' + extension;
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
+	
+}
+
 function appendSearchResult(result){
 	const searchResultsContainer = document.getElementById("searchResultsContainer");
 	const exampleResult = document.getElementById("exampleResult");
@@ -302,4 +329,18 @@ function appendSearchResult(result){
 		});
 	searchResultsContainer.appendChild(entry);
 
+}
+
+function deleteContact(){
+	var jsonPayload = JSON.stringify({'ContactID': selectedContactId});
+	var xhr = new XMLHttpRequest();
+	var url = urlBase + '/DeleteContact.' + extension;
+	xhr.open("DELETE", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
+	document.getElementById(String(selectedContactId)).remove();
 }
