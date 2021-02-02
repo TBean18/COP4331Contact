@@ -4,7 +4,7 @@
 - [X] Database
 - [X] Login
 - [X] Create New User
-- [ ] Create New Contact
+- [X] Create New Contact
 - [x] Search for Contacts
 - [ ] Update Existing Contact
 - [X] Delete Selected Contact 
