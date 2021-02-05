@@ -279,6 +279,7 @@ function editContactMode(){
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
 
+	document.getElementById('nameInput').readOnly = false;
 	document.getElementById('addressInput').readOnly = false;
 	document.getElementById('phoneInput').readOnly = false;
 	document.getElementById('emailInput').readOnly = false;
@@ -286,11 +287,21 @@ function editContactMode(){
 }
 
 function updateContact(){
-	var address = document.getElementById('addressInput').value;
+	var name = document.getElementById('nameInput').value;
 	var phone = document.getElementById('phoneInput').value;
 	var email = document.getElementById('emailInput').value;
 
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectContactId})
 
+	var xhr = new XMLHttpRequest();
+	var url = urlBase + '/UpdateContact.' + extension;
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 function createContact(){
