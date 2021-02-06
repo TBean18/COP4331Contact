@@ -288,8 +288,14 @@ function editContactMode(){
 
 function updateContact(){
 	var name = document.getElementById('nameInput').value;
+	if (name == "")
+		name = document.getElementById('nameInput').placeholder;
 	var phone = document.getElementById('phoneInput').value;
+	if (phone == "")
+		phone = document.getElementById('phoneInput').placeholder;
 	var email = document.getElementById('emailInput').value;
+	if (email == "")
+		email = document.getElementById('emailInput').placeholder;
 
 	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectedContactId});
 
