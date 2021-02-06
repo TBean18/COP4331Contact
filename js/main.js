@@ -267,9 +267,19 @@ function searchContact()
 function selectContact(contact){
 	selectedContactId = contact.ID;
 	document.getElementById('addressInput').placeholder = contact.Name;
-	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
+	document.getElementById('nameInput').placeholder = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
+
+	document.getElementById('addressInput').value = '';
+	document.getElementById('nameInput').value = '';
+	document.getElementById('phoneInput').value = '';
+	document.getElementById('emailInput').value = '';
+
+	document.getElementById('nameInput').readOnly = true;
+	document.getElementById('addressInput').readOnly = true;
+	document.getElementById('phoneInput').readOnly = true;
+	document.getElementById('emailInput').readOnly = true;
 
 	document.getElementById('deleteContactButton').style.display = 'none';
 	document.getElementById('saveChangesButton').style.display = 'none';
@@ -279,6 +289,7 @@ function editContactMode(){
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
 
+	document.getElementById('nameInput').readOnly = false;
 	document.getElementById('addressInput').readOnly = false;
 	document.getElementById('phoneInput').readOnly = false;
 	document.getElementById('emailInput').readOnly = false;
@@ -286,11 +297,27 @@ function editContactMode(){
 }
 
 function updateContact(){
-	var address = document.getElementById('addressInput').value;
+	var name = document.getElementById('nameInput').value;
+	if (name == "")
+		name = document.getElementById('nameInput').placeholder;
 	var phone = document.getElementById('phoneInput').value;
+	if (phone == "")
+		phone = document.getElementById('phoneInput').placeholder;
 	var email = document.getElementById('emailInput').value;
+	if (email == "")
+		email = document.getElementById('emailInput').placeholder;
 
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectedContactId});
 
+	var xhr = new XMLHttpRequest();
+	var url = urlBase + '/UpdateContact.' + extension;
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.send(jsonPayload);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 function createContact(){
