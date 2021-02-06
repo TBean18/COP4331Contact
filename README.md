@@ -8,6 +8,9 @@
 - [x] Search for Contacts
 - [ ] Update Existing Contact
 - [X] Delete Selected Contact 
+- [ ] Confirmation on Adding Contacts
+- [ ] Stop Allowing Duplicate Users
+- [ ] Confirmation on Update Contact
 
 ***
 ## API Documentation
@@ -21,15 +24,6 @@
 | SearchContact.php | Search, UserID | `"results": [{ "Name", Phone":, "Email":, "ID":}], "error":`
 | DeleteContact.php | ContactID | info, error
 | UpdateContact.php | Name, Phone, Email, ID | error
-<!-- ```json
-"results" {
-    "Name":,
-    "Phone":,
-    "Email":,
-    "ID":
-}
-``` -->
-
 
 ***
 ## Project Timeline
@@ -54,9 +48,17 @@
     -  Set up deleteContact on the front end
     -  Log Out Button
        -  JS is written in code.js (LAMP.zip)
-       -  
-
-
-
-
-    
+- ### Week 4 - 2/5/21
+  - All Members Present
+  - Finish Compiling Presentation
+    - Phil, Sam
+  - Presentations
+    - Website demonstration
+      - Taylor, Jo
+    - Swagger Hub API Demo
+      - Conrad
+    - Powerpoint
+      - Sam, Phil
+  - Fix the ENTER on Search Issue
+    - Sam, Jo
+  - 
