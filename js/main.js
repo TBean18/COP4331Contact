@@ -271,6 +271,11 @@ function selectContact(contact){
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
 
+	document.getElementById('addressInput').value = '';
+	document.getElementById('nameInput').value = '';
+	document.getElementById('phoneInput').value = '';
+	document.getElementById('emailInput').value = '';
+
 	document.getElementById('deleteContactButton').style.display = 'none';
 	document.getElementById('saveChangesButton').style.display = 'none';
 }
