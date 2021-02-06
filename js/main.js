@@ -267,7 +267,7 @@ function searchContact()
 function selectContact(contact){
 	selectedContactId = contact.ID;
 	document.getElementById('addressInput').placeholder = contact.Name;
-	document.getElementById('viewContactLongTitle').innerHTML = contact.Name;
+	document.getElementById('nameInput').placeholder = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
 
@@ -291,7 +291,7 @@ function updateContact(){
 	var phone = document.getElementById('phoneInput').value;
 	var email = document.getElementById('emailInput').value;
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectContactId})
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectContactId});
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
