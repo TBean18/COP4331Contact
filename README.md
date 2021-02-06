@@ -6,11 +6,11 @@
 - [X] Create New User
 - [X] Create New Contact
 - [x] Search for Contacts
-- [ ] Update Existing Contact
+- [X] Update Existing Contact
 - [X] Delete Selected Contact 
-- [ ] Confirmation on Adding Contacts
+- [X] Confirmation on Adding Contacts
 - [ ] Stop Allowing Duplicate Users
-- [ ] Confirmation on Update Contact
+- [X] Confirmation on Update Contact
 
 ***
 ## API Documentation
