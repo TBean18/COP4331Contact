@@ -291,7 +291,7 @@ function updateContact(){
 	var phone = document.getElementById('phoneInput').value;
 	var email = document.getElementById('emailInput').value;
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectContactId});
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectedContactId});
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
