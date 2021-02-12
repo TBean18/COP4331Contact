@@ -204,7 +204,12 @@ function createUser()
 
 		userId = jsonObject.id;
 
-		if( jsonObject.error != '')
+		if( jsonObject.error == 'User already exists')
+		{
+			document.getElemetnById("loginResult").innerHTML = "User already exists";
+			return;
+		}
+		else if( jsonObject.error != '')
 		{
 			document.getElementById("loginResult").innerHTML = "Error has occured";
 			return;
