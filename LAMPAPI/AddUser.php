@@ -14,6 +14,12 @@
 	}
 	else
 	{
+		$sql = "select * from Users where Username='" . $userName . "'";
+		$result = $conn->query($sql);
+		if( $result->num_rows > 0 )
+		{
+			returnWithError( 'User already exists' );
+		}
 	  	$sql = "insert into Users (FirstName,LastName,Username,Password) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $userName . "', '" . $password . "')";
 		if( $result = $conn->query($sql) != TRUE )
 		{
