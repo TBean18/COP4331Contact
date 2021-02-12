@@ -9,9 +9,16 @@
 - [X] Update Existing Contact
 - [X] Delete Selected Contact 
 - [X] Confirmation on Adding Contacts
-- [ ] Stop Allowing Duplicate Users
+- [X] Stop Allowing Duplicate Users
 - [X] Confirmation on Update Contact
-
+- [ ] Password Hashing (Taylor)
+- [ ] Gannt Chart (Sam)
+- [ ] Use Case Diagram (Phil & Sam)
+- [ ] Log Out (Conrad)
+- [ ] Finish Presentation (Phil to polish)
+- [ ] 2x Presentation Rehearsal
+  - [ ] Next Week Team Meeting
+  - [ ] Day of Presentation
 ***
 ## API Documentation
 ***
