@@ -19,11 +19,13 @@
 		if( $result->num_rows > 0 )
 		{
 			returnWithError( 'User already exists' );
+			return;
 		}
 	  	$sql = "insert into Users (FirstName,LastName,Username,Password) VALUES ( '" . $firstName . "' , '" . $lastName . "', '" . $userName . "', '" . $password . "')";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
+			return;
 		}
     	$UserID = $conn->insert_id;
 		$conn->close();
