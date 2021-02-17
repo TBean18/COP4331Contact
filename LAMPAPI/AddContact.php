@@ -5,6 +5,7 @@
 	$phone = $inData["Phone"];
 	$name =  $inData["Name"];
 	$userID = $inData["UserID"];
+	$address = $inData["Address"];
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
 	if ($conn->connect_error)
@@ -13,7 +14,7 @@
 	}
 	else
 	{
-		$sql = "insert into Contacts (Name,Email,Phone,UserID) VALUES ( '" . $name . "', '" . $email . "', '" . $phone . "', " . $userID . ")";
+		$sql = "insert into Contacts (Name,Email,Phone,Address,UserID) VALUES ( '" . $name . "', '" . $email . "', '" . $phone . "', '". $address . "', " . $userID . ")";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
