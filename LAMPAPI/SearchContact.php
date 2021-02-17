@@ -23,7 +23,7 @@
 					$searchResults .= ",";
 				}
 				$searchCount++;
-				$searchResults .= '{ "Name": "' . $row["Name"] . '",	"Phone": "'. $row["Phone"] . '",	"Email": "'. $row["Email"].'", "ID": '.$row["ID"] . '}';
+				$searchResults .= '{ "Name": "' . $row["Name"] . '",	"Phone": "'. $row["Phone"] . '",	"Email": "'. $row["Email"].'",	"Address": "'. $row["Address"].'", "ID": '.$row["ID"] . '}';
 			}
 		}
 		else
