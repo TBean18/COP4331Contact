@@ -35,10 +35,18 @@
   border-bottom: 1px solid #e9ecef;
 }
 
+.modal-title-do::-webkit-input-placeholder {
+    color: #999
+ }
+
+.modal-title-undo::-webkit-input-placeholder {
+     color: #4b2354
+}
+
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
-  color: var(--c, #4b2354);
+  color: #4b2354;
 }
 
 .modal-body {
