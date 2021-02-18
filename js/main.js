@@ -299,8 +299,9 @@ function selectContact(contact){
 	document.getElementById('saveChangesButton').style.display = 'none';
 }
 
-function editContactMode(){	
-	document.querySelector('nameInput').style.setProperty("--c", "#999");
+function editContactMode(){
+	document.querySelector('.modal-title').style.setProperty("--c", "#999");
+
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
 
@@ -312,7 +313,7 @@ function editContactMode(){
 }
 
 function updateContact(){
-	document.querySelector('nameInput').style.setProperty("--c", "#4b2354");
+	document.querySelector('.modal-title').style.setProperty("--c", "#4b2354");
 	var name = document.getElementById('nameInput').value;
 	if (name == "")
 		name = document.getElementById('nameInput').placeholder;
