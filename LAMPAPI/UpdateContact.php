@@ -5,6 +5,7 @@
 	$phone = $inData["Phone"];
 	$name =  $inData["Name"];
 	$contactID = $inData["ID"];
+	$address = $inData["Address"];
 
 	$conn = new mysqli("localhost", "API", "xXPickleAPI4331Xx", "ProjectData");
 	if ($conn->connect_error)
@@ -13,7 +14,7 @@
 	}
 	else
 	{
-		$sql = "update Contacts set Email = '" . $email . "', Phone = '" . $phone . "', Name = '" . $name . "' where ID = '" . $contactID . "';";
+		$sql = "update Contacts set Email = '" . $email . "', Phone = '" . $phone ."', Address = '" . $address . "', Name = '" . $name . "' where ID = '" . $contactID . "';";
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
