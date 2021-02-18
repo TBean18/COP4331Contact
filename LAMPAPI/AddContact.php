@@ -14,7 +14,7 @@
 	}
 	else
 	{
-		$sql = "select * from Contacts where Name='" . $name . "'";
+		$sql = "select * from Contacts where Name='" . $name . "' and UserID='" . $userID . "'";
 		$result = $conn->query($sql);
 		if( $result->num_rows > 0 )
 		{
