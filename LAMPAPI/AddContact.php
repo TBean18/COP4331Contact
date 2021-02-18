@@ -14,6 +14,13 @@
 	}
 	else
 	{
+		$sql = "select * from Contacts where Name='" . $name . "'";
+		$result = $conn->query($sql);
+		if( $result->num_rows > 0 )
+		{
+			returnWithError( 'Contact already exists' );
+			return;
+		}
 		$sql = "insert into Contacts (Name,Email,Phone,Address,UserID) VALUES ( '" . $name . "', '" . $email . "', '" . $phone . "', '". $address . "', " . $userID . ")";
 		if( $result = $conn->query($sql) != TRUE )
 		{
