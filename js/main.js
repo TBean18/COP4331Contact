@@ -300,7 +300,7 @@ function selectContact(contact){
 }
 
 function editContactMode(){
-	document.getElementById('nameImput').style.setProperty("--c", "#999");
+	document.getElementById('nameInput').style.setProperty("--c", "#999");
 
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
@@ -313,7 +313,7 @@ function editContactMode(){
 }
 
 function updateContact(){
-	document.getElementById('nameImput').style.setProperty("--c", "#4b2354");
+	document.getElementById('nameInput').style.setProperty("--c", "#4b2354");
 	var name = document.getElementById('nameInput').value;
 	if (name == "")
 		name = document.getElementById('nameInput').placeholder;
