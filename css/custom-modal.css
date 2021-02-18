@@ -34,7 +34,7 @@
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
-  color: #4b2354;
+  color: var(--c, #4b2354);
 }
 
 .modal-body {
