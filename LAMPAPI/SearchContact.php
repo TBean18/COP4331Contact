@@ -12,7 +12,7 @@
 	}
 	else
 	{
-		$sql = "SELECT * FROM Contacts WHERE Name LIKE '%" . $inData["Search"] . "%' AND UserID=" . $inData["UserID"]. " ORDER BY Name DESC";
+		$sql = "SELECT * FROM Contacts WHERE Name LIKE '%" . $inData["Search"] . "%' AND UserID=" . $inData["UserID"]. " ORDER BY Name ASC";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
