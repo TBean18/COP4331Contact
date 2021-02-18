@@ -1,3 +1,7 @@
+:root {
+  --c: #4b2354;
+}
+
 .modal-content {
   position: relative;
   display: -ms-flexbox;
