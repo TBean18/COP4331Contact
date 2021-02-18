@@ -300,6 +300,7 @@ function selectContact(contact){
 }
 
 function editContactMode(){
+	document.getElementById('nameInput').style.color = "#999";
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
 
@@ -311,6 +312,7 @@ function editContactMode(){
 }
 
 function updateContact(){
+	document.getElementById('nameInput').style.color = "#4b2354";
 	var name = document.getElementById('nameInput').value;
 	if (name == "")
 		name = document.getElementById('nameInput').placeholder;
@@ -355,7 +357,7 @@ function createContact(){
 	} catch (error) {
 		console.log(error);
 	}
-	
+
 }
 
 function appendSearchResult(result){
