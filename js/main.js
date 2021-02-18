@@ -343,10 +343,10 @@ function createContact(){
 	}
 	var newContactFirstName = document.getElementById("newContactFirstName").value;
 	var newContactLastName = document.getElementById("newContactLastName").value;
-	var name = newContactFirstName + " " + newContactLastName
-	var phone =  document.getElementById("newContactPhoneNumber").value;
-	var email =  document.getElementById("newContactEmail").value;
-	var address = document.getElementById("newContactAddress").value;
+	var name = (newContactFirstName + " " + newContactLastName).trim();
+	var phone = (document.getElementById("newContactPhoneNumber").value).trim();
+	var email =  (document.getElementById("newContactEmail").value).trim();
+	var address = (document.getElementById("newContactAddress").value).trim();
 
 	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'Address': address, 'UserID':userId} )
 
