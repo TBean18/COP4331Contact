@@ -85,6 +85,15 @@
   border-color: #FF4B4B;
 }
 
+.confirmationText {
+  position: absolute;
+  top: 90%;
+  left: 9rem;
+
+  transform: translateY(-50%);
+  color: #FF4B4B;
+}
+
 .btn-delete:hover {
   color: #fff;
   background-color: #D10000;
