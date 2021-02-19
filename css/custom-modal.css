@@ -74,7 +74,7 @@
   transition: all 0.15s ease-in-out;
 }
 
-.btn-delete {
+.modal-footer .btn-delete {
   position: absolute;
   top: 90%;
   left: 1rem;
@@ -85,7 +85,7 @@
   border-color: #FF4B4B;
 }
 
-.confirmationText {
+.modal-footer p.confirmationText {
   position: absolute;
   top: 90%;
   left: 9rem;
