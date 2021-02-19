@@ -329,6 +329,7 @@ function updateContact(){
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
+		searchContact();
 	} catch (error) {
 		console.log(error);
 	}
@@ -352,10 +353,10 @@ function createContact(){
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
+		searchContact();
 	} catch (error) {
 		console.log(error);
 	}
-	
 }
 
 function appendSearchResult(result){
@@ -367,9 +368,8 @@ function appendSearchResult(result){
 	entry.id = result.ID;
 	entry.addEventListener('click', function() {
 		selectContact(result);
-		});
+	});
 	searchResultsContainer.appendChild(entry);
-
 }
 
 function deleteContact(){
