@@ -301,6 +301,10 @@ function selectContact(contact){
 }
 
 function clearEdit() {
+	document.getElementById("confirmationText").style.display = 'none';
+	document.getElementById("deleteContactButton").textContent = 'Delete';
+	document.getElementById("editContactButton").textContent = 'Edit';
+	
 	document.getElementById('deleteContactButton').style.display = 'none';
 	document.getElementById('saveChangesButton').style.display = 'none';
 
@@ -336,7 +340,6 @@ function editContactMode(){
 }
 
 function updateContact(){
-	clearEdit();
 	var name = document.getElementById('nameInput').value;
 	if (name == "")
 		name = document.getElementById('nameInput').placeholder;
@@ -361,6 +364,8 @@ function updateContact(){
 	} catch (error) {
 		console.log(error);
 	}
+
+	clearEdit();
 }
 
 function createContact(){
