@@ -76,8 +76,8 @@
 
 .btn-delete {
   position: absolute;
-  top: 87.5%;
-  left: .75rem;
+  top: 90%;
+  left: 1rem;
 
   transform: translateY(-50%);
   color: #fff;
