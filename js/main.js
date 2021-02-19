@@ -328,7 +328,7 @@ function updateContact(){
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
@@ -353,7 +353,7 @@ function createContact(){
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/AddContact.' + extension;
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
