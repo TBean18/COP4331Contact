@@ -280,7 +280,7 @@ function searchContact()
 
 function selectContact(contact){
 	selectedContactId = contact.ID;
-	document.getElementById('addressInput').placeholder = contact.Name;
+	document.getElementById('addressInput').placeholder = contact.Address;
 	document.getElementById('nameInput').placeholder = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
@@ -320,8 +320,11 @@ function updateContact(){
 	var email = document.getElementById('emailInput').value;
 	if (email == "")
 		email = document.getElementById('emailInput').placeholder;
+	var address = document.getElementById('addressInput').value;
+	if (address == "")
+		address = document.getElementById('addressInput').placeholder;
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectedContactId});
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'Address': address, 'ID': selectedContactId});
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
@@ -340,11 +343,12 @@ function createContact(){
 	}
 	var newContactFirstName = document.getElementById("newContactFirstName").value;
 	var newContactLastName = document.getElementById("newContactLastName").value;
-	var name = newContactFirstName + " " + newContactLastName
-	var phone =  document.getElementById("newContactPhoneNumber").value;
-	var email =  document.getElementById("newContactEmail").value;
+	var name = (newContactFirstName + " " + newContactLastName).trim();
+	var phone = (document.getElementById("newContactPhoneNumber").value).trim();
+	var email =  (document.getElementById("newContactEmail").value).trim();
+	var address = (document.getElementById("newContactAddress").value).trim();
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'UserID':userId} )
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'Address': address, 'UserID':userId} )
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/AddContact.' + extension;
@@ -355,7 +359,6 @@ function createContact(){
 	} catch (error) {
 		console.log(error);
 	}
-	
 }
 
 function appendSearchResult(result){
