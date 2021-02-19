@@ -332,10 +332,10 @@ function updateContact(){
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
-		searchContact();
 	} catch (error) {
 		console.log(error);
 	}
+	searchContact();
 }
 
 function createContact(){
@@ -357,10 +357,10 @@ function createContact(){
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
-		searchContact();
 	} catch (error) {
 		console.log(error);
 	}
+	searchContact();
 }
 
 function appendSearchResult(result){
