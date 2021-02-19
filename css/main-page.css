@@ -748,12 +748,22 @@ div.scroll:hover {
   line-height: 1.5;
   font-family: inherit;
   font-weight: 500;
+  color: #999;
+  font-size: 1.25rem;
+}
+
+.modal-header #nameDisplay {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-family: inherit;
+  font-weight: 500;
   color: #4b2354;
   font-size: 1.25rem;
 }
 
 .modal-header ::placeholder {
-  color: #4b2354;
+  color: #999;
   opacity: 1;
 }
 
