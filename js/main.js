@@ -280,7 +280,7 @@ function searchContact()
 
 function selectContact(contact){
 	selectedContactId = contact.ID;
-	document.getElementById('addressInput').placeholder = contact.Address;
+	document.getElementById('addressInput').placeholder = contact.Name;
 	document.getElementById('nameInput').placeholder = contact.Name;
 	document.getElementById('phoneInput').placeholder = contact.Phone;
 	document.getElementById('emailInput').placeholder = contact.Email;
@@ -300,6 +300,8 @@ function selectContact(contact){
 }
 
 function editContactMode(){
+	document.getElementById('nameDisplay').style.display = 'none';
+	document.getElementById('nameInput').style.display = 'block';
 	document.getElementById('deleteContactButton').style.display = 'block';
 	document.getElementById('saveChangesButton').style.display = 'block';
 
@@ -311,6 +313,9 @@ function editContactMode(){
 }
 
 function updateContact(){
+	document.getElementById('nameDisplay').style.display = 'block';
+	document.getElementById('nameInput').style.display = 'none';
+
 	var name = document.getElementById('nameInput').value;
 	if (name == "")
 		name = document.getElementById('nameInput').placeholder;
@@ -320,11 +325,8 @@ function updateContact(){
 	var email = document.getElementById('emailInput').value;
 	if (email == "")
 		email = document.getElementById('emailInput').placeholder;
-	var address = document.getElementById('addressInput').value;
-	if (address == "")
-		address = document.getElementById('addressInput').placeholder;
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'Address': address, 'ID': selectedContactId});
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'ID': selectedContactId});
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
@@ -344,12 +346,11 @@ function createContact(){
 	}
 	var newContactFirstName = document.getElementById("newContactFirstName").value;
 	var newContactLastName = document.getElementById("newContactLastName").value;
-	var name = (newContactFirstName + " " + newContactLastName).trim();
-	var phone = (document.getElementById("newContactPhoneNumber").value).trim();
-	var email =  (document.getElementById("newContactEmail").value).trim();
-	var address = (document.getElementById("newContactAddress").value).trim();
+	var name = newContactFirstName + " " + newContactLastName
+	var phone =  document.getElementById("newContactPhoneNumber").value;
+	var email =  document.getElementById("newContactEmail").value;
 
-	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'Address': address, 'UserID':userId} )
+	var jsonPayload = JSON.stringify({'Name': name, 'Phone': phone, 'Email': email, 'UserID':userId} )
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/AddContact.' + extension;
