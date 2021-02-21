@@ -7,6 +7,7 @@ var lastName = "";
 var selectedContactId;
 const exampleResult = document.getElementById("exampleResult");
 var searchContactResults;
+var deleteFlag = false;
 
 
 function doLogin()
@@ -299,15 +300,45 @@ function selectContact(contact){
 	document.getElementById('saveChangesButton').style.display = 'none';
 }
 
+function clearEdit() {
+	document.getElementById("confirmationText").style.display = 'none';
+	document.getElementById("deleteContactButton").textContent = 'Delete';
+	document.getElementById("editContactButton").textContent = 'Edit';
+
+	document.getElementById('deleteContactButton').style.display = 'none';
+	document.getElementById('saveChangesButton').style.display = 'none';
+
+	document.getElementById('nameInput').readOnly = true;
+	document.getElementById('addressInput').readOnly = true;
+	document.getElementById('phoneInput').readOnly = true;
+	document.getElementById('emailInput').readOnly = true;
+
+	deleteFlag = false;
+}
+
 function editContactMode(){
-	document.getElementById('deleteContactButton').style.display = 'block';
-	document.getElementById('saveChangesButton').style.display = 'block';
 
-	document.getElementById('nameInput').readOnly = false;
-	document.getElementById('addressInput').readOnly = false;
-	document.getElementById('phoneInput').readOnly = false;
-	document.getElementById('emailInput').readOnly = false;
+	if (deleteFlag)
+	{
+		document.getElementById("confirmationText").style.display = 'none';
+		document.getElementById("deleteContactButton").textContent = 'Delete';
+		document.getElementById("editContactButton").textContent = 'Edit';
+		deleteFlag = false;
+		$('#viewContact').modal('hide');
 
+		clearEdit();
+	}
+
+	else
+	{
+		document.getElementById('deleteContactButton').style.display = 'block';
+		document.getElementById('saveChangesButton').style.display = 'block';
+
+		document.getElementById('nameInput').readOnly = false;
+		document.getElementById('addressInput').readOnly = false;
+		document.getElementById('phoneInput').readOnly = false;
+		document.getElementById('emailInput').readOnly = false;
+	}
 }
 
 function updateContact(){
@@ -335,6 +366,8 @@ function updateContact(){
 	} catch (error) {
 		console.log(error);
 	}
+
+	clearEdit();
 	searchContact();
 }
 
@@ -376,18 +409,45 @@ function appendSearchResult(result){
 	searchResultsContainer.appendChild(entry);
 }
 
+function confirmContactDelete(){
+	document.getElementById("confirmationText").style.display = 'block';
+	document.getElementById("deleteContactButton").textContent = 'Yes';
+	document.getElementById("editContactButton").textContent = 'No';
+	deleteFlag = true;
+
+	$('#viewContact').modal('show');
+}
+
 function deleteContact(){
-	var jsonPayload = JSON.stringify({'ContactID': selectedContactId});
-	var xhr = new XMLHttpRequest();
-	var url = urlBase + '/DeleteContact.' + extension;
-	xhr.open("DELETE", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try {
-		xhr.send(jsonPayload);
-	} catch (error) {
-		console.log(error);
+
+	if (deleteFlag) {
+		document.getElementById("confirmationText").style.display = 'none';
+		document.getElementById("deleteContactButton").textContent = 'Delete';
+		document.getElementById("editContactButton").textContent = 'Edit';
+		deleteFlag = false;
+		$('#viewContact').modal('hide');
+
+		clearEdit();
+
+		var jsonPayload = JSON.stringify({'ContactID': selectedContactId});
+		var xhr = new XMLHttpRequest();
+		var url = urlBase + '/DeleteContact.' + extension;
+		xhr.open("DELETE", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try {
+			xhr.send(jsonPayload);
+		} catch (error) {
+			console.log(error);
+		}
+		document.getElementById(String(selectedContactId)).remove();
 	}
-	document.getElementById(String(selectedContactId)).remove();
+	else {
+		confirmContactDelete();
+
+		$( "viewContact" ).submit(function( event ) {
+  		event.preventDefault();
+		});
+	}
 }
 
 function initilizeCreateContact(){
