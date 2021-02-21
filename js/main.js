@@ -389,3 +389,11 @@ function deleteContact(){
 	}
 	document.getElementById(String(selectedContactId)).remove();
 }
+
+function initilizeCreateContact(){
+	document.getElementById("newContactFirstName").value = '';
+	document.getElementById("newContactLastName").value = '';
+	document.getElementById("newContactPhoneNumber").value = '';
+	document.getElementById("newContactEmail").value = '';
+	document.getElementById("newContactAddress").value = '';
+}
