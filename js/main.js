@@ -304,7 +304,7 @@ function clearEdit() {
 	document.getElementById("confirmationText").style.display = 'none';
 	document.getElementById("deleteContactButton").textContent = 'Delete';
 	document.getElementById("editContactButton").textContent = 'Edit';
-	
+
 	document.getElementById('deleteContactButton').style.display = 'none';
 	document.getElementById('saveChangesButton').style.display = 'none';
 
@@ -312,6 +312,8 @@ function clearEdit() {
 	document.getElementById('addressInput').readOnly = true;
 	document.getElementById('phoneInput').readOnly = true;
 	document.getElementById('emailInput').readOnly = true;
+
+	deleteFlag = false;
 }
 
 function editContactMode(){
