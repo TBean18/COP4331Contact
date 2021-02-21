@@ -46,6 +46,10 @@
   color: #4b2354;
 }
 
+.modal-body #emailInput {
+  width: 400px;
+}
+
 .modal-footer {
   display: -ms-flexbox;
   display: flex;

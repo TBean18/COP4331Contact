@@ -359,7 +359,7 @@ function updateContact(){
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/UpdateContact.' + extension;
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
@@ -368,6 +368,7 @@ function updateContact(){
 	}
 
 	clearEdit();
+	searchContact();
 }
 
 function createContact(){
@@ -385,13 +386,14 @@ function createContact(){
 
 	var xhr = new XMLHttpRequest();
 	var url = urlBase + '/AddContact.' + extension;
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try {
 		xhr.send(jsonPayload);
 	} catch (error) {
 		console.log(error);
 	}
+	searchContact();
 }
 
 function appendSearchResult(result){
@@ -403,9 +405,8 @@ function appendSearchResult(result){
 	entry.id = result.ID;
 	entry.addEventListener('click', function() {
 		selectContact(result);
-		});
+	});
 	searchResultsContainer.appendChild(entry);
-
 }
 
 function confirmContactDelete(){
@@ -447,4 +448,12 @@ function deleteContact(){
   		event.preventDefault();
 		});
 	}
+}
+
+function initilizeCreateContact(){
+	document.getElementById("newContactFirstName").value = '';
+	document.getElementById("newContactLastName").value = '';
+	document.getElementById("newContactPhoneNumber").value = '';
+	document.getElementById("newContactEmail").value = '';
+	document.getElementById("newContactAddress").value = '';
 }
